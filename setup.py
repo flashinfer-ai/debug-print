@@ -7,12 +7,8 @@ setup(
     ext_modules=[
         CUDAExtension(
             name="debug_print",
-            sources=[
-                "csrc/debug_print.cu"
-            ],
-            extra_compile_args={
-                "nvcc": ["-O3", "-std=c++17"]
-            }
+            sources=["csrc/debug_print.cu"],
+            extra_compile_args={"nvcc": ["-O3", "-std=c++17"]},
         )
     ],
     cmdclass={"build_ext": BuildExtension},
