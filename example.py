@@ -5,7 +5,7 @@ import debug_print
 x = torch.rand(3, 4, 5).to(0)
 debug_print.print_tensor(x)
 debug_print.print_tensor(x[..., 0:3])
-x = torch.arange(3 * 4 * 5).view(3, 4, 5).to(0)
+x = torch.arange(3 * 4 * 5, dtype=torch.int32).view(3, 4, 5).to(0)
 debug_print.print_tensor(x[..., 0])
 debug_print.print_tensor(x[0:1, 1:3, 0:4])
 

@@ -28,7 +28,7 @@ template <typename int_t>
 __global__ void PrintIntTensor1D(int_t *__restrict__ x, const size_t stride_0,
                                  const size_t n) {
   for (size_t i = 0; i < n; ++i) {
-    printf("%lld, ", (int64_t)x[i * stride_0]);
+    printf("%lld, ", int64_t(x[i * stride_0]));
   }
   printf("\n");
 }
@@ -49,7 +49,8 @@ __global__ void PrintIntTensor2D(int_t *__restrict__ x, const size_t shape_0,
                                  const size_t stride_1, const size_t stride_0,
                                  const size_t n) {
   for (size_t i = 0; i < n; ++i) {
-    printf("%lld, ", x[(i / shape_0) * stride_1 + (i % shape_0) * stride_0]);
+    printf("%lld, ",
+           int64_t(x[(i / shape_0) * stride_1 + (i % shape_0) * stride_0]));
   }
   printf("\n");
 }
@@ -73,9 +74,9 @@ __global__ void PrintIntTensor3D(int_t *__restrict__ x, const size_t shape_1,
                                  const size_t stride_1, const size_t stride_0,
                                  const size_t n) {
   for (size_t i = 0; i < n; ++i) {
-    printf("%lld, ",
-           x[(i / shape_0 / shape_1) * stride_2 +
-             ((i / shape_0) % shape_1) * stride_1 + (i % shape_0) * stride_0]);
+    printf("%lld, ", int64_t(x[(i / shape_0 / shape_1) * stride_2 +
+                               ((i / shape_0) % shape_1) * stride_1 +
+                               (i % shape_0) * stride_0]));
   }
   printf("\n");
 }
