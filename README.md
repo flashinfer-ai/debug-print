@@ -5,7 +5,7 @@ Helper function to print tensor inside CUDA kernels, designed for debugging insi
 ## Installation
 
 ```bash
-pip install -e . -v
+pip install git+https://github.com/flashinfer-ai/debug-print.git
 ```
 
 ## Usage
