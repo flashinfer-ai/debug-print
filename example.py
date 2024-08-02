@@ -23,7 +23,7 @@ with torch.cuda.stream(s):
 g = torch.cuda.CUDAGraph()
 with torch.cuda.graph(g, stream=s):
     debug_print.print_tensor(x)
-    debug_print.print_tensor(y)
+    debug_print.print_tensor(y, print_ptr=True)
     z = x @ y
     debug_print.print_tensor(z)
     z1 = z @ y
